@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>897</width>
+    <height>572</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabwidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>901</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="traintesttab">
+     <attribute name="title">
+      <string>Train / Test</string>
+     </attribute>
+     <widget class="QPushButton" name="folderbutton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>241</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Select Folder...</string>
+      </property>
+     </widget>
+     <widget class="QListView" name="filelist">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>60</y>
+        <width>241</width>
+        <height>371</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="testbutton">
+      <property name="geometry">
+       <rect>
+        <x>540</x>
+        <y>440</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Test All</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="createbutton">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>440</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Prepare Dataset</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="trainbutton">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>440</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Train</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="clearbutton">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>440</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Clear Dataset</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="klabel">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>440</y>
+        <width>81</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font-size: 12pt;</string>
+      </property>
+      <property name="text">
+       <string>K = 0</string>
+      </property>
+     </widget>
+     <widget class="QSlider" name="kslider">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>440</y>
+        <width>131</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="MplWidget" name="mplw" native="true">
+      <property name="geometry">
+       <rect>
+        <x>280</x>
+        <y>20</y>
+        <width>591</width>
+        <height>411</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid black;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="testoncebutton">
+      <property name="geometry">
+       <rect>
+        <x>410</x>
+        <y>440</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Test Once</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="analysistab">
+     <attribute name="title">
+      <string>Analysis</string>
+     </attribute>
+     <widget class="MplWidget" name="mplwa" native="true">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>851</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid white;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="allkbutton">
+      <property name="geometry">
+       <rect>
+        <x>380</x>
+        <y>490</y>
+        <width>111</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Plot For All K</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MplWidget</class>
+   <extends>QWidget</extends>
+   <header>mplwidget.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>folderbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>select_folder()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>48</x>
+     <y>62</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>48</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>filelist</sender>
+   <signal>clicked(QModelIndex)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>select_file()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>155</x>
+     <y>185</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>154</x>
+     <y>362</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>createbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>prepare_dataset()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>130</x>
+     <y>488</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>130</x>
+     <y>511</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>clearbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>clear_dataset()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>479</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>206</x>
+     <y>509</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>trainbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>train()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>336</x>
+     <y>488</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>73</x>
+     <y>534</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>testbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>test()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>576</x>
+     <y>483</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>194</x>
+     <y>542</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>kslider</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>set_k()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>702</x>
+     <y>475</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>704</x>
+     <y>514</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>testoncebutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>test_once()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>476</x>
+     <y>474</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>272</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>allkbutton</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>test_all_k()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>418</x>
+     <y>517</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>538</x>
+     <y>551</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>select_folder()</slot>
+  <slot>select_file()</slot>
+  <slot>prepare_dataset()</slot>
+  <slot>clear_dataset()</slot>
+  <slot>train()</slot>
+  <slot>test()</slot>
+  <slot>set_k()</slot>
+  <slot>test_once()</slot>
+  <slot>test_all_k()</slot>
+ </slots>
+</ui>
