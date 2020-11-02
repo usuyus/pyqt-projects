@@ -1,1 +1,1 @@
-Burada staj sirsinda yazdigim kodu bulabilirsiniz.
+Some random projects with Qt using PyQt
